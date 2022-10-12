@@ -3,6 +3,7 @@ package com.aor.numbers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledOnJre;
 
 import java.util.Arrays;
 import java.util.List;
@@ -48,6 +49,7 @@ public class ListAggregatorTest {
         Assertions.assertEquals(1, min);
     }
 
+
     @Test
     public void distinct() {
         setup();
@@ -66,5 +68,15 @@ public class ListAggregatorTest {
         int max_bug_7263 = aggregator.max(list);
 
         Assertions.assertEquals(-1, max_bug_7263);
+    }
+
+    @Test
+    public void distinct_bug_8726(){
+        list = Arrays.asList(1,2,4,2);
+
+        ListAggregator aggregator = new ListAggregator();
+        int distinct_bug_8726 = aggregator.distinct(list);
+
+        Assertions.assertEquals(3, distinct_bug_8726);
     }
 }
