@@ -47,4 +47,13 @@ public class PositiveFilterTest {
 
         Assertions.assertTrue(filter.accept(number1));
     }
+
+    @Test
+    public void test_zero(){
+        this.number1 = 0;
+
+        PositiveFilter filter = new PositiveFilter();
+
+        Assertions.assertTrue(filter.accept(number1));
+    }
 }
