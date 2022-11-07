@@ -9,4 +9,5 @@ public class DivisibleFilter implements GenericListFilterer{
     public boolean accept(Integer number){
         return number%divisor==0;
     }
+
 }
